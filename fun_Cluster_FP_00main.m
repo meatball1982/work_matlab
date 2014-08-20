@@ -5,4 +5,4 @@ function [ out ] = fun_Cluster_FP_00main( X )
 
 end
 %% logs 
-% mod : 2014年 08月 20日 星期三 15:51:31 CST
+% mod : 20-Aug-2014 16:11:35
