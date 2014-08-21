@@ -18,6 +18,8 @@ function [ out ] = fun_Cluster_FP_00main( X )
 %% 04 cal halo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [ halo       ] = fun_Cluster_FP_04halo( 1 )
 
+out = 1;
+
 end
 
 
