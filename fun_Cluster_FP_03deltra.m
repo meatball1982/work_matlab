@@ -18,8 +18,8 @@ for i=2:ND
     delta(ind1)=maxd;
     for j=1:(i-1)
         ind2=ind_tm(j);
-        if dist(ind1,ind2)<delta(ind1)
-            delta(ind1)=dist(ind1,ind2);
+        if dis_mat(ind1,ind2)<delta(ind1)
+            delta(ind1)=dis_mat(ind1,ind2);
             nneigh(ind1)=ind2;
         end
     end

@@ -1,4 +1,4 @@
-function [ rho out ] = fun_Cluster_FP_00main( X )
+function [ out ] = fun_Cluster_FP_00main( X )
 % UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 %% outline
@@ -23,20 +23,49 @@ dc  = sda(position);
 disp('-------------------------------------------')
 [ rho        ] = fun_Cluster_FP_02rho( dis_mat , dc );
 
-
 %% 03 cal deltra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
 [ delta      ] = fun_Cluster_FP_03deltra( dis_mat,rho );
+
+% save Mat_delta.mat
+
+
+%% index each point to cluster
+% rhomin = 21.2588;
+% deltamin = 0.1990;
+
+% rhomin = 30;
+% deltamin = 1.6;
+
+rhomin = 20;
+deltamin = 0.8;
+
+cl=ones(ND,1)*(-1);
+n_cluster=0;
+icl=[];
+
+for i=1:ND
+    if( (rho(i)>rhomin) && (delta(i)>deltamin))
+        n_cluster=n_cluster+1;
+        cl(i)=n_cluster;
+        icl(n_cluster)=i;
+    end
+end
+
+if length(icl)==0
+    icl=1;
+end
 
 %% 04 cal halo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
 [ halo       ] = fun_Cluster_FP_04halo( 1 );
 
-save Mat_delta.mat
+
 % plot(rho,delta,'.')
-% out = dis_mat;
-% out = rho;
-out = delta;
+out.dis_mat = dis_mat;
+out.rho = rho;
+out.delta = delta;
+out.ic = icl;
 
 end
 
