@@ -22,5 +22,7 @@ end
 
 
 %% logs 
+% mod : 21-Aug-2014 08:37:06
 % mod : 20-Aug-2014 16:11:35
 % mod : 2014年 08月 20日 星期三 17:02:51 CST
+% mod : this commit is added on win7, t400
