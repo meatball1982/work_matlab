@@ -14,12 +14,12 @@ clc
 % load data
 load Mat_320_int_input_output.mat dat320_in_dia 
 
-ind_cho=logical([1:50:length(dat320_in_dia)]);
+ind_cho=logical([1:200:length(dat320_in_dia)]);
 
 a=dat320_in_dia(ind_cho,:);
 clear dat320_in_dia
 
-[ out ] = fun_Cluster_FP_00main( a );
+[ rho,out ] = fun_Cluster_FP_00main( a );
 
 
 

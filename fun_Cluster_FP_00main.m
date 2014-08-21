@@ -1,28 +1,42 @@
-function [ out ] = fun_Cluster_FP_00main( X )
+function [ rho out ] = fun_Cluster_FP_00main( X )
 % UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 %% outline
 % use the science cluster algorithm to cluster the points
 
 %% 00 load data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ND = length(X);
+N  = ND*(ND-1)/2;
+
+percent  = 2.0;
+position = round(N*percent/100);
 
 %% 01 cal the distance matrix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
 [ dis_mat, dis] = fun_Cluster_FP_01dismatrix( X );
 
+% cal rho parameter 
+sda = sort(dis);
+dc  = sda(position);
+
 %% 02 cal rho %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
-[ rho        ] = fun_Cluster_FP_02rho( 1 );
+[ rho        ] = fun_Cluster_FP_02rho( dis_mat , dc );
+
 
 %% 03 cal deltra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
-[ delta      ] = fun_Cluster_FP_03deltra( 1 );
+[ delta      ] = fun_Cluster_FP_03deltra( dis_mat,rho );
 
 %% 04 cal halo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
 [ halo       ] = fun_Cluster_FP_04halo( 1 );
 
-out = dis_mat;
+save Mat_delta.mat
+% plot(rho,delta,'.')
+% out = dis_mat;
+% out = rho;
+out = delta;
 
 end
 
