@@ -7,18 +7,22 @@ function [ out ] = fun_Cluster_FP_00main( X )
 %% 00 load data %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% 01 cal the distance matrix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[ dis_matrix ] = fun_Cluster_FP_01dismatrix( X )
+disp('-------------------------------------------')
+[ dis_mat, dis] = fun_Cluster_FP_01dismatrix( X );
 
 %% 02 cal rho %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[ rho        ] = fun_Cluster_FP_02rho( 1 )
+disp('-------------------------------------------')
+[ rho        ] = fun_Cluster_FP_02rho( 1 );
 
 %% 03 cal deltra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[ delta      ] = fun_Cluster_FP_03deltra( 1 )
+disp('-------------------------------------------')
+[ delta      ] = fun_Cluster_FP_03deltra( 1 );
 
 %% 04 cal halo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[ halo       ] = fun_Cluster_FP_04halo( 1 )
+disp('-------------------------------------------')
+[ halo       ] = fun_Cluster_FP_04halo( 1 );
 
-out = 1;
+out = dis_mat;
 
 end
 
