@@ -23,9 +23,11 @@ dc  = sda(position);
 disp('-------------------------------------------')
 [ rho        ] = fun_Cluster_FP_02rho( dis_mat , dc );
 
+[rho_sorted,ordrho]=sort(rho,'descend'); % want the ordrho
+
 %% 03 cal deltra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
-[ delta      ] = fun_Cluster_FP_03deltra( dis_mat,rho );
+[ delta ,nneigh    ] = fun_Cluster_FP_03deltra( dis_mat,rho );
 
 % save Mat_delta.mat
 
@@ -56,6 +58,17 @@ if length(icl)==0
     icl=1;
 end
 
+% ref version assigemnt. the pointA is 
+% in the same cluster like the other pointB, 
+% which density is higher than pointA, and nearest to pointA.
+for i=1:ND
+    if (cl(ordrho(i))== -1)
+        cl(ordrho(i))=cl(nneigh(ordrho(i)));
+    end
+end
+
+
+
 %% 04 cal halo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
 [ halo       ] = fun_Cluster_FP_04halo( 1 );
@@ -66,6 +79,7 @@ out.dis_mat = dis_mat;
 out.rho = rho;
 out.delta = delta;
 out.ic = icl;
+out.cl =cl;
 
 end
 

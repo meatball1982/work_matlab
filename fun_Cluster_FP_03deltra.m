@@ -1,4 +1,4 @@
-function [ output_args ] = fun_Cluster_FP_03deltra(  dis_mat,rho )
+function [ delta , nneigh] = fun_Cluster_FP_03deltra(  dis_mat,rho )
 %UNTITLED4 Summary of this function goes here
 %   Detailed explanation goes here
 disp('fun_Cluster_FP_03deltra')
@@ -27,7 +27,9 @@ for i=2:ND
 end
 delta(ordrho(1))=max(delta(:));
 
-output_args = delta;
+% output_args = delta;
 
 end
 
+%% logs 
+% mod : 21-Aug-2014 21:11:44
