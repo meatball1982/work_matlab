@@ -43,28 +43,28 @@ cl = out.cl;
 %     'MarkerSize',10)
 % xlabel('rho')
 % ylabel('delta')
-% fi_na=['../imgs/en/27_int_dia_input_en/fig_cluster_3_dia_rho_deltra']
+% fi_na=['../imgs/fig_cluster_3_dia_rho_deltra']
 % fun_work_li_035_myfig_out(h,fi_na,3)
 
-clf
-% subplot(1,2,2)
-% % plot3(a(:,1),a(:,2),a(:,3),'.')
-h=scatter3(a(:,1),a(:,2),a(:,3),12,cl)
-% scatter3(a(:,1),a(:,2),a(:,3),12,en)
-alpha(0.3)
-hold on
-plot3(a(ic,1),a(ic,2),a(ic,3),'o',...
-    'MarkerEdgeColor','r',...
-    'MarkerFaceColor','r',...
-    'MarkerSize',10)
-grid on
-xlabel('phi')
-ylabel('psi')
-zlabel('tau')
-colorbar
-view(120,20)
-fi_na=['../imgs/en/27_int_dia_input_en/fig_cluster_3_dia_cluster_result']
-fun_work_li_035_myfig_out(h,fi_na,3)
+% clf
+% % subplot(1,2,2)
+% % % plot3(a(:,1),a(:,2),a(:,3),'.')
+% h=scatter3(a(:,1),a(:,2),a(:,3),12,cl)
+% % scatter3(a(:,1),a(:,2),a(:,3),12,en)
+% alpha(0.3)
+% hold on
+% plot3(a(ic,1),a(ic,2),a(ic,3),'o',...
+%     'MarkerEdgeColor','r',...
+%     'MarkerFaceColor','r',...
+%     'MarkerSize',10)
+% grid on
+% xlabel('phi')
+% ylabel('psi')
+% zlabel('tau')
+% % colorbar
+% view(120,20)
+% fi_na=['../imgs/fig_cluster_3_dia_cluster_result']
+% fun_work_li_035_myfig_out(h,fi_na,3)
 
 
 %% logs 
