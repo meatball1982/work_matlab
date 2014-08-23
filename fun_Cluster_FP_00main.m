@@ -8,7 +8,7 @@ function [ out ] = fun_Cluster_FP_00main( X )
 ND = length(X);
 N  = ND*(ND-1)/2;
 
-percent  = 2.0;
+percent  = 1.0;
 position = round(N*percent/100);
 
 %% 01 cal the distance matrix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,14 +33,14 @@ disp('-------------------------------------------')
 
 
 %% index each point to cluster
-% rhomin = 21.2588;
-% deltamin = 0.1990;
+% rhomin = 21.2588; deltamin = 0.1990;
 
-% rhomin = 30;
-% deltamin = 1.6;
+% rhomin = 30; deltamin = 1.6;
 
-rhomin = 20;
-deltamin = 0.8;
+% rhomin = 100; deltamin = 0.8;
+rhomin = 20; deltamin = 0.8;
+% rhomin = 180; deltamin = 0.5;
+% rhomin = 100; deltamin = 2;
 
 cl=ones(ND,1)*(-1);
 n_cluster=0;
@@ -71,15 +71,17 @@ end
 
 %% 04 cal halo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('-------------------------------------------')
-[ halo       ] = fun_Cluster_FP_04halo( 1 );
+[ halo  ] = fun_Cluster_FP_04halo( n_cluster,dis_mat,dc, cl,rho );
 
 
 % plot(rho,delta,'.')
-out.dis_mat = dis_mat;
-out.rho = rho;
-out.delta = delta;
-out.ic = icl;
-out.cl =cl;
+out.dis_mat   = dis_mat;
+out.rho       = rho;
+out.delta     = delta;
+out.ic        = icl;
+out.cl        = cl;
+out.halo      = halo;
+out.n_cluster = n_cluster;
 
 end
 

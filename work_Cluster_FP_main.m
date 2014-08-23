@@ -13,58 +13,42 @@ clf
 
 %% main %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % load data
-load Mat_320_int_input_output.mat dat320_in_dia
+load Mat_320_int_input_output54.mat dat320_in_dia
+% load Mat_320_int_input_output.mat dat320_in_dia
 load Mat_016_cluster_3_20Dia_int.mat dat_En
 
 
-ind_cho=logical([1:20:length(dat320_in_dia)]);
+ind_cho=logical([1:2:length(dat320_in_dia)]);
 a=dat320_in_dia(ind_cho,:);
+% a=cos(a);
 en=dat_En(ind_cho,:);
-clear dat320_in_dia dat320_En
-a(a(:,1)>0,1)=a(a(:,1)>0,1)-2*pi;
+clear dat320_in_dia dat_En
+% a(a(:,1)>0,1)=a(a(:,1)>0,1)-2*pi;
+a(a(:,1)<0,1)=a(a(:,1)<0,1)+2*pi;
+a(a(:,2)<0,2)=a(a(:,2)<0,2)+2*pi;
+a(a(:,3)<-2,3)=a(a(:,3)<-2,3)+2*pi;
 
 % load Mat_00_orig_points.mat Y
 % a=Y;
 
+% 2 dia angle 
+% a(:,2)=[];
 
-[ out ] = fun_Cluster_FP_00main( a );
 
-ic=out.ic;
-rho=out.rho;
-delta=out.delta;
-cl = out.cl;
+[ out_clu ] = fun_Cluster_FP_00main( a );
 
-% % subplot(1,2,1)
-% h=plot(rho,delta,'.');
-% hold on
-% plot(rho(ic),delta(ic),'o',...
-%     'MarkerEdgeColor','r',...
-%     'MarkerFaceColor','r',...
-%     'MarkerSize',10)
-% xlabel('rho')
-% ylabel('delta')
-% fi_na=['../imgs/fig_cluster_3_dia_rho_deltra']
-% fun_work_li_035_myfig_out(h,fi_na,3)
+ic    = out_clu.ic;
+rho   = out_clu.rho;
+delta = out_clu.delta;
+cl    = out_clu.cl;
+halo  = out_clu.halo;
 
-% clf
-% % subplot(1,2,2)
-% % % plot3(a(:,1),a(:,2),a(:,3),'.')
-% h=scatter3(a(:,1),a(:,2),a(:,3),12,cl)
-% % scatter3(a(:,1),a(:,2),a(:,3),12,en)
-% alpha(0.3)
-% hold on
-% plot3(a(ic,1),a(ic,2),a(ic,3),'o',...
-%     'MarkerEdgeColor','r',...
-%     'MarkerFaceColor','r',...
-%     'MarkerSize',10)
-% grid on
-% xlabel('phi')
-% ylabel('psi')
-% zlabel('tau')
-% % colorbar
-% view(120,20)
-% fi_na=['../imgs/fig_cluster_3_dia_cluster_result']
-% fun_work_li_035_myfig_out(h,fi_na,3)
+clear out_clu
+
+% save Mat_cluster_2dia_halo.mat
+save Mat_cluster_3dia_halo54.mat
+
+
 
 
 %% logs 
