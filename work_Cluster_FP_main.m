@@ -34,23 +34,25 @@ a(a(:,3)<-2,3)=a(a(:,3)<-2,3)+2*pi;
 % 2 dia angle 
 % a(:,2)=[];
 
-
-[ out_clu ] = fun_Cluster_FP_00main( a );
-
-ic    = out_clu.ic;
-rho   = out_clu.rho;
-delta = out_clu.delta;
-cl    = out_clu.cl;
-halo  = out_clu.halo;
-
-clear out_clu
-
-% save Mat_cluster_2dia_halo.mat
-save Mat_cluster_3dia_halo54.mat
+% 
+% [ out_clu ] = fun_Cluster_FP_00main( a );
+% 
+% ic    = out_clu.ic;
+% rho   = out_clu.rho;
+% delta = out_clu.delta;
+% cl    = out_clu.cl;
+% halo  = out_clu.halo;
+% 
+% clear out_clu
+% 
+% % save Mat_cluster_2dia_halo.mat
+% save Mat_cluster_3dia_halo54.mat
 
 
 
 
 %% logs 
+% mod : 25-Aug-2014 21:36:15
+% cluster inter cord
 % mod : 21-Aug-2014 20:59:09
 % mod : 21-Aug-2014 08:49:09
