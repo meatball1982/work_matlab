@@ -15,18 +15,27 @@ clf
 % load data
 load Mat_320_int_input_output54.mat dat320_in_dia
 % load Mat_320_int_input_output.mat dat320_in_dia
+
+load Mat_320_int_input_output54.mat dat320_in_noh
+
+
 load Mat_016_cluster_3_20Dia_int.mat dat_En
 
 
 ind_cho=logical([1:2:length(dat320_in_dia)]);
 a=dat320_in_dia(ind_cho,:);
+
+
 % a=cos(a);
 en=dat_En(ind_cho,:);
 clear dat320_in_dia dat_En
+
 % a(a(:,1)>0,1)=a(a(:,1)>0,1)-2*pi;
-a(a(:,1)<0,1)=a(a(:,1)<0,1)+2*pi;
-a(a(:,2)<0,2)=a(a(:,2)<0,2)+2*pi;
-a(a(:,3)<-2,3)=a(a(:,3)<-2,3)+2*pi;
+% a(a(:,1)<0,1)=a(a(:,1)<0,1)+2*pi;
+% a(a(:,2)<0,2)=a(a(:,2)<0,2)+2*pi;
+% a(a(:,3)<-2,3)=a(a(:,3)<-2,3)+2*pi;
+
+
 
 % load Mat_00_orig_points.mat Y
 % a=Y;

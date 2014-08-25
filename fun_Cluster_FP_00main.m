@@ -38,7 +38,9 @@ disp('-------------------------------------------')
 % rhomin = 30; deltamin = 1.6;
 
 % rhomin = 100; deltamin = 0.8;
-rhomin = 20; deltamin = 0.8;
+% rhomin = 20; deltamin = 0.8;
+rhomin = 100; deltamin = 2;
+
 % rhomin = 180; deltamin = 0.5;
 % rhomin = 100; deltamin = 2;
 
